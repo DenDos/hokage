@@ -24,6 +24,11 @@ enum layers {
   _ADJUST
 };
 
+
+#if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
+#    include "rgb.c"
+#endif
+
 // Custom keycodes for layer keys
 // Dual function escape with left command
 #define KC_LGESC LGUI_T(KC_ESC)
@@ -369,3 +374,21 @@ void suspend_wakeup_init_keymap(void) {
 }
 
 #endif
+
+
+/*
+ * #if defined(RGBLIGHT_ENABLE) || defined(RGB_MATRIX_ENABLE)
+ * layer_state_t layer_state_set_user(layer_state_t state) {
+ *     [> For any layer other than default, save current RGB state and switch to layer-based RGB <]
+ *     if (layer_state_cmp(state, 0)) {
+ *         restore_rgb_config();
+ *     } else {
+ *         uint8_t layer = get_highest_layer(state);
+ *         if (layer_state_cmp(layer_state, 0)) save_rgb_config();
+ *         rgb_by_layer(layer);
+ *     }
+ *     return state;
+ * }
+ * #endif
+ * 
+ */

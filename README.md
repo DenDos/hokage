@@ -1,4 +1,4 @@
-# Soundmonster's layout for Corne
+# Cotoha's layout for Corne
 
 Features:
 
