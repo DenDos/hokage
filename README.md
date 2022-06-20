@@ -19,7 +19,13 @@ Features:
   # https://docs.qmk.fm/#/newbs_getting_started
   
   # then go to qmk_firmware folder
-  cd /Users/#{your_user_name}/qmk_firmware/keyboards/crkbd/keymaps
+  cd /Users/#{your_user_name}/qmk_firmware
+  
+  # Current firmware works only for qmk_firmware 0.11.50
+  git checkout 0.11.50
+
+  # Go to keymaps folder
+  cd /keyboards/crkbd/keymaps
   
   # Clone the hokage repo
   git clone https://github.com/DenDos/hokage.git
