@@ -1,42 +1,147 @@
-# Cotoha's layout for Corne
+# Hokage - Corne Keyboard Layout
 
-Features:
+Custom QMK keymap for the **Corne (crkbd)** split ergonomic keyboard (42 keys).
 
-* Modern OLED support (many thanks to @drashna):
-  * Proper orientation
-  * Graphic layer indicator ↑ ↓
-  * Graphic modifier indicator ⌘ ⇧ ⌥  ⌃
-* Similar enough to the default keymap so you can easily port your custom keymap to it
-* Mac-friendly (Command and Option on the thumbs)
-* Vim-friendly (Esc, `:` and Ctrl on the thumbs)
-* Full per-key RGB Matrix support out of the box (you still have to go through the nightmare of soldering yourself though 😉)
+## Features
 
+- **Mac-friendly**: Command and Option on the thumbs
+- **Vim-friendly**: Esc, `:` and Ctrl on the thumbs
+- **OLED displays**: 128x64 SSD1306 with layer/modifier indicators (270° rotation)
+- **Per-key RGB Matrix**: WS2812 with typing heatmap, solid reactive effects
+- **NKRO**: Full N-Key Rollover support
+
+---
+
+## Current Layout
+
+### Layer 0: QWERTY (Default)
+
+```
+╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
+│ TAB  │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  [   │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│ SHIFT│  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  '   │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│ CTRL │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  ~   │
+╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
+                    │ CMD │LWR  │ SPC │   │ ENT │RSE  │ ALT │
+                    ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+```
+
+### Layer 1: LOWER (Numbers & Navigation)
+
+Hold **LWR** thumb key to activate.
+
+```
+╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
+│ ESC  │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │      │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│ SHIFT│     │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │      │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│ CTRL │     │     │     │     │     │   │ BSPC│     │     │     │     │      │
+╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
+                    │ CMD │ ▓▓▓ │ SPC │   │ ENT │ADJ  │ ALT │
+                    ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+```
+
+### Layer 2: RAISE (Symbols & F-keys)
+
+Hold **RSE** thumb key to activate.
+
+```
+╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
+│ ESC  │  !  │  @  │  #  │  $  │  %  │   │  ^  │  &  │  *  │  (  │  )  │ BSPC │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│ SHIFT│ F1  │ F2  │ F10 │ F11 │ F12 │   │  -  │  =  │  {  │  }  │  |  │  `   │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│ CTRL │ F7  │ F8  │ F9  │HOME │ END │   │  _  │  +  │  [  │  ]  │  \  │  ¬   │
+╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
+                    │ CMD │ADJ  │ SPC │   │ ENT │ ▓▓▓ │ ALT │
+                    ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+```
+
+### Layer 3: ADJUST (RGB & System)
+
+Hold **LWR + RSE** simultaneously to activate.
+
+```
+╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
+│RESET │     │     │     │     │RGBRS│   │     │     │     │     │     │      │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│RGBTOG│ HUE+│ SAT+│ VAL+│     │     │   │     │     │     │     │     │      │
+├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
+│RGBMOD│ HUE-│ SAT-│ VAL-│     │     │   │ BSPC│     │     │     │     │      │
+╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
+                    │ CMD │ ▓▓▓ │ SPC │   │ ENT │ ▓▓▓ │ ALT │
+                    ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
+```
+
+> `▓▓▓` = transparent (passes through to layer below)
+
+---
+
+## File Structure
+
+| File | Description |
+|------|-------------|
+| `keymap.c` | Keymap layers, OLED rendering, custom key processing |
+| `config.h` | QMK config: tapping term (150ms), RGB, OLED, serial settings |
+| `rules.mk` | Build features: RGB_MATRIX, OLED, NKRO |
+| `rgb.c` | Per-layer RGB color logic |
+| `glcdfont.c` | Custom OLED font with layer/modifier indicator glyphs |
+
+---
 
 ## Installation
 
+### Prerequisites
+
+1. Install QMK toolchain following the [official guide](https://docs.qmk.fm/#/newbs_getting_started)
+2. Make sure `avr-gcc` is installed:
+
 ```bash
-  # first follow these steps 
-  # https://docs.qmk.fm/#/newbs_getting_started
-  
-  # then go to qmk_firmware folder
-  cd /Users/#{your_user_name}/qmk_firmware
-  
-  # Current firmware works only for qmk_firmware 0.11.50
-  git checkout 0.11.50
-
-  # Go to keymaps folder
-  cd /keyboards/crkbd/keymaps
-  
-  # Clone the hokage repo
-  git clone https://github.com/DenDos/hokage.git
-  
-  # make sure you have avr-gcc installed
-  brew install avr-gcc
-  
-  # Compile firmware
-  qmk compile -kb crkbd -km hokage
-  
-  # Flash it 🚀
-  qmk flash -kb crkbd -km hokage
-
+brew install avr-gcc
 ```
+
+### Setup
+
+```bash
+# Go to your qmk_firmware directory
+cd ~/qmk_firmware
+
+# This keymap requires QMK 0.11.50
+git checkout 0.11.50
+
+# Clone this repo into the Corne keymaps folder
+cd keyboards/crkbd/keymaps
+git clone https://github.com/DenDos/hokage.git
+```
+
+### Build & Flash
+
+```bash
+# Compile the firmware
+qmk compile -kb crkbd -km hokage
+
+# Flash to keyboard (put keyboard in bootloader mode first)
+qmk flash -kb crkbd -km hokage
+```
+
+> Repeat the flash command for each half of the keyboard.
+
+---
+
+## Customization
+
+- **Tapping term**: Change `TAPPING_TERM` in `config.h` (default: 150ms)
+- **RGB effects**: Enable/disable animations in `config.h` (`#define`/`#undef`)
+- **OLED font**: Edit `glcdfont.c` using [Helix Font Editor](https://helixfonteditor.netlify.com/)
+- **Keymap**: Modify layer arrays in `keymap.c`
+
+## Hardware
+
+- **Keyboard**: Corne (crkbd) — 42-key split
+- **Master half**: Left
+- **Displays**: SSD1306 128x64 OLED (rotated 270°)
+- **LEDs**: WS2812 per-key RGB
+- **Communication**: Serial (PD2 pin)
