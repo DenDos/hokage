@@ -110,16 +110,15 @@ Custom QMK keymap for the **Corne (crkbd)** split ergonomic keyboard (42 keys).
 ### Prerequisites
 
 1. Install QMK toolchain following the [official guide](https://docs.qmk.fm/#/newbs_getting_started)
-2. Make sure `avr-gcc` is installed:
+2. Install dependencies:
 
 ```bash
-brew install avr-gcc
+brew install qmk/qmk/qmk avr-gcc
 ```
 
 ### Setup
 
 ```bash
-# Go to your qmk_firmware directory
 cd ~/qmk_firmware
 
 # This keymap requires QMK 0.11.50
@@ -132,15 +131,76 @@ git clone https://github.com/DenDos/hokage.git
 
 ### Build & Flash
 
-```bash
-# Compile the firmware
-qmk compile -kb crkbd -km hokage
+> **Important:** The Homebrew `qmk` CLI (v1.1.6+) is incompatible with QMK firmware 0.11.50.
+> Use `make` instead of the `qmk` command.
 
-# Flash to keyboard (put keyboard in bootloader mode first)
-qmk flash -kb crkbd -km hokage
+```bash
+cd ~/qmk_firmware
+
+# Compile
+make crkbd:hokage
+
+# Flash (repeat for each half)
+make crkbd:hokage:avrdude
 ```
 
-> Repeat the flash command for each half of the keyboard.
+The flash command will print `Detecting USB port, reset your controller now...`
+and wait for the keyboard to enter bootloader mode.
+
+### Flashing procedure (both halves)
+
+1. Connect the **left half** via USB
+2. Run `make crkbd:hokage:avrdude`
+3. Enter bootloader mode (see below)
+4. Wait for flash to complete and verify
+5. Disconnect left, connect **right half** via USB
+6. Repeat steps 2-4
+
+### Entering bootloader mode (software reset)
+
+No physical reset button needed. The RESET key is on **Layer 3 (ADJUST)**,
+top-left position (where TAB normally is):
+
+1. Hold **LWR** (left thumb middle) + **RSE** (right thumb middle) simultaneously
+2. While holding both, tap the **top-left key** (TAB position)
+
+> The Pro Micro bootloader only stays active for ~8 seconds.
+> Start the `make crkbd:hokage:avrdude` command **before** pressing RESET
+> so it detects the device automatically.
+
+After flashing both halves, connect only the **left half** (master) to your Mac.
+The right half communicates over the TRRS/serial cable.
+
+---
+
+## Troubleshooting
+
+### `qmk compile` fails with `conflicting subparser: config`
+
+The Homebrew `qmk` CLI is too new for QMK 0.11.50. Use `make` instead:
+
+```bash
+make crkbd:hokage          # compile
+make crkbd:hokage:avrdude  # flash
+```
+
+### `avrdude` config errors (`unknown token`, `syntax error`)
+
+If `avrdude` was upgraded to v8.x, its config file at `/opt/homebrew/etc/avrdude.conf`
+may be corrupted or incompatible. Fix by replacing it with the correct version
+from the Homebrew bottle:
+
+```bash
+cp /opt/homebrew/Cellar/avrdude/$(avrdude 2>&1 | grep -oP '[\d.]+')/\
+.bottle/etc/avrdude.conf /opt/homebrew/etc/avrdude.conf
+```
+
+Or reinstall: `brew reinstall avrdude`
+
+### Bootloader times out before flash starts
+
+The Pro Micro bootloader is only active for ~8 seconds. Always start the
+flash command first, then press the reset combo while it's waiting.
 
 ---
 
