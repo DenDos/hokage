@@ -1,23 +1,23 @@
-# ⌨️ Hokage - Corne Keyboard Layout
+# Hokage - Corne Keyboard Layout
 
 Custom QMK keymap for the **Corne (crkbd)** split ergonomic keyboard (42 keys).
 
-## ✨ Features
+## Features
 
-- 🍎 **Mac-friendly**: Command and Option on the thumbs
-- 🟢 **Vim-friendly**: Esc, `:` and Ctrl on the thumbs
-- 🖥️ **OLED displays**: 128x64 SSD1306 with layer/modifier indicators (270° rotation)
-- 🌈 **Per-key RGB Matrix**: WS2812 with typing heatmap, solid reactive effects
-- ⚡ **NKRO**: Full N-Key Rollover support
+- **Mac-friendly**: Command and Option on the thumbs
+- **Vim-friendly**: Esc, `:` and Ctrl on the thumbs
+- **OLED displays**: 128x64 SSD1306 with layer/modifier indicators (270° rotation)
+- **Per-key RGB Matrix**: WS2812 with typing heatmap, solid reactive effects
+- **NKRO**: Full N-Key Rollover support
 
 ---
 
-## 🗺️ Current Layout
+## Current Layout
 
-### Layer 0: ⌨️ QWERTY (Default)
+### Layer 0: QWERTY (Default)
 
 ```
-        🤚 ЛЕВАЯ РУКА                          ✋ ПРАВАЯ РУКА
+        ЛЕВАЯ РУКА                              ПРАВАЯ РУКА
 ╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
 │ TAB  │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  [   │
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
@@ -25,25 +25,25 @@ Custom QMK keymap for the **Corne (crkbd)** split ergonomic keyboard (42 keys).
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
 │ CTRL │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  ~   │
 ╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
-                    │ ⌘  │ ⬇LWR│ SPC │   │ ENT │⬆RSE │ ⌥   │
+                    │ CMD │LWR ⬇│ SPC │   │ ENT │RSE ⬆│ ALT │
                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
                       👈 большие пальцы 👉
 ```
 
-**👍 Thumb keys (большие пальцы):**
+**Thumb keys (большие пальцы):**
 
 | Клавиша | Рука | Палец | Действие |
 |---------|------|-------|----------|
-| ⌘ CMD | 🤚 Левая | Большой | Command (macOS) |
-| ⬇ LWR | 🤚 Левая | Большой | Зажать → Layer 1 (🔢 цифры, 🧭 стрелки) |
-| SPC | 🤚 Левая | Большой | Пробел |
-| ENT | ✋ Правая | Большой | Enter ↵ |
-| ⬆ RSE | ✋ Правая | Большой | Зажать → Layer 2 (🔣 символы, 🎛️ F-клавиши) |
-| ⌥ ALT | ✋ Правая | Большой | Option (macOS) |
+| CMD | Левая | Большой | Command (macOS) |
+| LWR | Левая | Большой | Зажать → Layer 1 (цифры, стрелки) |
+| SPC | Левая | Большой | Пробел |
+| ENT | Правая | Большой | Enter |
+| RSE | Правая | Большой | Зажать → Layer 2 (символы, F-клавиши) |
+| ALT | Правая | Большой | Option (macOS) |
 
-### Layer 1: 🔢 LOWER (Numbers & Navigation)
+### Layer 1: LOWER (Numbers & Navigation)
 
-> 🤚 Зажми **LWR** — **левая рука**, большой палец, средняя клавиша.
+> Зажми **LWR** — **левая рука**, большой палец, средняя клавиша.
 
 ```
 ╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
@@ -51,61 +51,61 @@ Custom QMK keymap for the **Corne (crkbd)** split ergonomic keyboard (42 keys).
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
 │ SHIFT│     │     │     │     │     │   │  ←  │  ↓  │  ↑  │  →  │     │      │
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-│ CTRL │     │     │     │     │     │   │ ⌫   │     │     │     │     │      │
+│ CTRL │     │     │     │     │     │   │ BSPC│     │     │     │     │      │
 ╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
-                    │ ⌘  │ ▓▓▓ │ SPC │   │ ENT │⚙ADJ │ ⌥   │
+                    │ CMD │ ▓▓▓ │ SPC │   │ ENT │ADJ  │ ALT │
                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 ```
 
-### Layer 2: 🔣 RAISE (Symbols & F-keys)
+### Layer 2: RAISE (Symbols & F-keys)
 
-> ✋ Зажми **RSE** — **правая рука**, большой палец, средняя клавиша.
+> Зажми **RSE** — **правая рука**, большой палец, средняя клавиша.
 
 ```
 ╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
-│ ESC  │  !  │  @  │  #  │  $  │  %  │   │  ^  │  &  │  *  │  (  │  )  │  ⌫   │
+│ ESC  │  !  │  @  │  #  │  $  │  %  │   │  ^  │  &  │  *  │  (  │  )  │ BSPC │
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
 │ SHIFT│ F1  │ F2  │ F10 │ F11 │ F12 │   │  -  │  =  │  {  │  }  │  |  │  `   │
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-│ CTRL │ F7  │ F8  │ F9  │🏠HOM│🔚END│   │  _  │  +  │  [  │  ]  │  \  │  ¬   │
+│ CTRL │ F7  │ F8  │ F9  │HOME │ END │   │  _  │  +  │  [  │  ]  │  \  │  ¬   │
 ╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
-                    │ ⌘  │⚙ADJ │ SPC │   │ ENT │ ▓▓▓ │ ⌥   │
+                    │ CMD │ADJ  │ SPC │   │ ENT │ ▓▓▓ │ ALT │
                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 ```
 
-### Layer 3: ⚙️ ADJUST (RGB & System)
+### Layer 3: ADJUST (RGB & System)
 
-> 🤚✋ Зажми **LWR + RSE** одновременно — **оба больших пальца**, средние клавиши на обеих руках.
+> Зажми **LWR + RSE** одновременно — **оба больших пальца**, средние клавиши на обеих руках.
 
 ```
 ╭──────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬──────╮
-│🔄RST │     │     │     │     │🌈RST│   │     │     │     │     │     │      │
+│RESET │     │     │     │     │RGBRS│   │     │     │     │     │     │      │
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-│💡TOG │🎨HU+│🌈SA+│☀VA+ │     │     │   │     │     │     │     │     │      │
+│RGBTOG│ HUE+│ SAT+│ VAL+│     │     │   │     │     │     │     │     │      │
 ├──────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼──────┤
-│🔄MOD │🎨HU-│🌈SA-│☀VA- │     │     │   │  ⌫  │     │     │     │     │      │
+│RGBMOD│ HUE-│ SAT-│ VAL-│     │     │   │ BSPC│     │     │     │     │      │
 ╰──────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴──────╯
-                    │ ⌘  │ ▓▓▓ │ SPC │   │ ENT │ ▓▓▓ │ ⌥   │
+                    │ CMD │ ▓▓▓ │ SPC │   │ ENT │ ▓▓▓ │ ALT │
                     ╰─────┴─────┴─────╯   ╰─────┴─────┴─────╯
 ```
 
-> `▓▓▓` = transparent (проходит на слой ниже)
+> `▓▓▓` = transparent (passes through to layer below)
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 | File | Description |
 |------|-------------|
-| `keymap.c` | 🗺️ Keymap layers, OLED rendering, custom key processing |
-| `config.h` | ⚙️ QMK config: tapping term (150ms), RGB, OLED, serial settings |
-| `rules.mk` | 🏗️ Build features: RGB_MATRIX, OLED, NKRO |
-| `rgb.c` | 🌈 Per-layer RGB color logic |
-| `glcdfont.c` | 🔤 Custom OLED font with layer/modifier indicator glyphs |
+| `keymap.c` | Keymap layers, OLED rendering, custom key processing |
+| `config.h` | QMK config: tapping term (150ms), RGB, OLED, serial settings |
+| `rules.mk` | Build features: RGB_MATRIX, OLED, NKRO |
+| `rgb.c` | Per-layer RGB color logic |
+| `glcdfont.c` | Custom OLED font with layer/modifier indicator glyphs |
 
 ---
 
-## 🚀 Installation
+## Installation
 
 ### Prerequisites
 
@@ -122,7 +122,7 @@ brew install avr-gcc
 # Go to your qmk_firmware directory
 cd ~/qmk_firmware
 
-# ⚠️ This keymap requires QMK 0.11.50
+# This keymap requires QMK 0.11.50
 git checkout 0.11.50
 
 # Clone this repo into the Corne keymaps folder
@@ -130,31 +130,31 @@ cd keyboards/crkbd/keymaps
 git clone https://github.com/DenDos/hokage.git
 ```
 
-### 🔨 Build & Flash
+### Build & Flash
 
 ```bash
 # Compile the firmware
 qmk compile -kb crkbd -km hokage
 
-# Flash to keyboard (put keyboard in bootloader mode first) 🚀
+# Flash to keyboard (put keyboard in bootloader mode first)
 qmk flash -kb crkbd -km hokage
 ```
 
-> ⚠️ Repeat the flash command for each half of the keyboard.
+> Repeat the flash command for each half of the keyboard.
 
 ---
 
-## 🛠️ Customization
+## Customization
 
-- ⏱️ **Tapping term**: Change `TAPPING_TERM` in `config.h` (default: 150ms)
-- 🌈 **RGB effects**: Enable/disable animations in `config.h` (`#define`/`#undef`)
-- 🔤 **OLED font**: Edit `glcdfont.c` using [Helix Font Editor](https://helixfonteditor.netlify.com/)
-- 🗺️ **Keymap**: Modify layer arrays in `keymap.c`
+- **Tapping term**: Change `TAPPING_TERM` in `config.h` (default: 150ms)
+- **RGB effects**: Enable/disable animations in `config.h` (`#define`/`#undef`)
+- **OLED font**: Edit `glcdfont.c` using [Helix Font Editor](https://helixfonteditor.netlify.com/)
+- **Keymap**: Modify layer arrays in `keymap.c`
 
-## 🔩 Hardware
+## Hardware
 
-- ⌨️ **Keyboard**: Corne (crkbd) — 42-key split
-- 🤚 **Master half**: Left
-- 🖥️ **Displays**: SSD1306 128x64 OLED (rotated 270°)
-- 💡 **LEDs**: WS2812 per-key RGB
-- 🔌 **Communication**: Serial (PD2 pin)
+- **Keyboard**: Corne (crkbd) — 42-key split
+- **Master half**: Left
+- **Displays**: SSD1306 128x64 OLED (rotated 270°)
+- **LEDs**: WS2812 per-key RGB
+- **Communication**: Serial (PD2 pin)
